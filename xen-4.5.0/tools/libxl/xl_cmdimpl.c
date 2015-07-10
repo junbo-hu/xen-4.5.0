@@ -490,7 +490,7 @@ static void parse_disk_config_multistring(XLU_Config **config,
                                           libxl_device_disk *disk)
 {
     int e;
-
+    //给磁盘结构disk分配空间
     libxl_device_disk_init(disk);
 
     if (!*config) {
@@ -6368,6 +6368,7 @@ int main_channellist(int argc, char **argv)
     return 0;
 }
 
+//Create a new virtual block device
 int main_blockattach(int argc, char **argv)
 {
     int opt;
@@ -6378,13 +6379,13 @@ int main_blockattach(int argc, char **argv)
     SWITCH_FOREACH_OPT(opt, "", NULL, "block-attach", 2) {
         /* No options */
     }
-
+    //检测的domid是否有效
     if (libxl_domain_qualifier_to_domid(ctx, argv[optind], &fe_domid) < 0) {
         fprintf(stderr, "%s is an invalid domain identifier\n", argv[optind]);
         return 1;
     }
     optind++;
-
+    //解析磁盘配置信息,并创建磁盘到disk
     parse_disk_config_multistring
         (&config, argc-optind, (const char* const*)argv + optind, &disk);
 

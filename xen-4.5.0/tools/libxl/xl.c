@@ -302,7 +302,7 @@ int main(int argc, char **argv)
     void *config_data = 0;
     int config_len = 0;
 
-    printf("hello phy!!!\n");
+    printf("hello phy on git!!!\n");
    
     while ((opt = getopt(argc, argv, "+vftN")) >= 0) {
         switch (opt) {

@@ -56,7 +56,6 @@ int xlu_disk_parse(XLU_Config *cfg,
     dpc.cfg = cfg;
     dpc.scanner = 0;
     dpc.disk = disk;
-
     disk->readwrite = 1;
 
     for (i=0; i<nspecs; i++) {
@@ -69,7 +68,7 @@ int xlu_disk_parse(XLU_Config *cfg,
 
         dpc_dispose(&dpc);
     }
-
+    //disk->format 在何处赋值？
     if (disk->format == LIBXL_DISK_FORMAT_UNKNOWN) {
         disk->format = LIBXL_DISK_FORMAT_RAW;
     }
