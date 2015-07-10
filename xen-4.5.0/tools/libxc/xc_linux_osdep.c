@@ -131,6 +131,8 @@ static void linux_privcmd_free_hypercall_buffer(xc_interface *xch, xc_osdep_hand
 static int linux_privcmd_hypercall(xc_interface *xch, xc_osdep_handle h, privcmd_hypercall_t *hypercall)
 {
     int fd = (int)h;
+    printf("linux_privcmd_hypercall is called\n");
+
     return ioctl(fd, IOCTL_PRIVCMD_HYPERCALL, hypercall);
 }
 
