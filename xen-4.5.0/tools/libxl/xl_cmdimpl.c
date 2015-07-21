@@ -6379,7 +6379,7 @@ int main_blockattach(int argc, char **argv)
     SWITCH_FOREACH_OPT(opt, "", NULL, "block-attach", 2) {
         /* No options */
     }
-    //检测的domid是否有效
+    //检测domid是否有效
     if (libxl_domain_qualifier_to_domid(ctx, argv[optind], &fe_domid) < 0) {
         fprintf(stderr, "%s is an invalid domain identifier\n", argv[optind]);
         return 1;
